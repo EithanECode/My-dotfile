@@ -6,24 +6,36 @@ personalizacion=("")
 
 programas=("")
 
+function instalarPacman(){
+
+	local instalacion=("$@")
+
+	for prog in "${instalacion[@]}";do
+
+		sudo pacman -S --noconfirm --needed $prog
+		 
+}
+
 function verificarInstaldos(){
 
-	local dependencias=("$@")
+	local verificar=("$@")
 
-	echo "Esto es lo que contiene el array $dependencias"
-
-	echo "Entre a la funcion"
-
-	for dep in "${dependencias[@]}"; do
+	for dep in "${verificar[@]}"; do
 		if which "$dep" >/dev/null 2>&1; then
-			echo "$dep ya está instalado"
+			echo "[✔] $dep ya está instalado"
 		else
-			echo "$dep valio madres"
+			echo "[✘] $dep no instalado "
 		fi 
 	done
 
-
 }
+
+#functionInstalar(){
+
+
+
+
+#}
 
 #function dependencias(){
 
@@ -34,11 +46,12 @@ function verificarInstaldos(){
 
 function main(){
 
-	dependencias=("flatpak", "wget", "curl", "git")
+	toilet -f smblock -F crop "Dependencias"
+
+	dependencias=("flatpak" "wget" "curl" "git")
 
 	verificarInstaldos "${dependencias[@]}"
 
 }
-
 
 main
