@@ -1,0 +1,34 @@
+Dividir el programa por secciones:
+
+- Dependencias
+- Personalización
+    - zsh
+    - Oh-my-zsh
+    - Fondos de pantalla
+    - Configuraciones de kitty 
+    - Personalización de nano 
+- Programas
+    - Visual studio code
+    - git
+    - wget
+    - flatpak
+    - paru
+    - telegram
+    - node js
+    - lsd
+    - batcat
+    - protonvpn
+    - spotify
+    - Discord
+    - tick tick 
+    - android studio
+    - htop
+    - fastfetch   
+    - brave
+    
+
+Panorama de como se hará:
+
+- Primero se empieza actualizando el sistema
+- Luego se instala la personalización 
+- Luego se instalan los programas
