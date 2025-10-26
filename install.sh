@@ -25,7 +25,7 @@ source $HOME/.zshrc
 #Instalando programas:
 
 ##Instalar snap
-
+    
 cd
 
 sudo pacman -S --noconfigrm --needed git curl flatpak base-devel proton-vpn-gtk-app
