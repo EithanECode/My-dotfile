@@ -1,15 +1,43 @@
 #!/bin/bash
 
-personalizacion=("")
+personalizacion=("zsh" "lsd" "bat" "oh-my-zsh" )
 
-programas=("")
+programas=("kitty")
 
-function instalarPacman(){
+function personalizacionKitty(){
+
+	echo "Instalando personalización de la terminal Kitty..."
+
+	cd $HOME/script_autoinstall
+
+	cp -r "source/kitty" "$HOME/.config/kitty" 
+
+}
+
+function personalizacionZsh(){
+
+	echo "Instalando personalizacion de Zsh..."
+
+	cd $HOME/script_autoinstall
+
+	cp "source/zsh/cachyos-config.zsh" "/usr/share/cachyos-zsh-config/cachyos-config.zsh"
+
+}
+
+function instalarConPacman(){
 
 	echo "instalando $1..."
 
 	sudo pacman -S --noconfirm --needed $1
 		 
+}
+
+function instalarConParu(){
+
+	echo "Instalando $1..."
+
+	paru -S --noconfirm --skipreview --needed $1 
+
 }
 
 function InstalarParu(){
@@ -27,7 +55,6 @@ function InstalarParu(){
 	cd
 
 	rm -rf paru
-
 
 }
 
@@ -83,7 +110,7 @@ function verificarInstalados(){
 			elif [ "$dep" = "snap" ]; then
 				instalarSnap
 			else
-				instalarPacman $dep
+				instalarConPacman $dep
 				fi
 		fi 
 	done
@@ -92,11 +119,15 @@ function verificarInstalados(){
 
 function main(){
 
-	toilet -f smblock -F crop "Dependencias"
-
 	dependencias=("flatpak" "wget" "curl" "git" "jdk21-openjdk" "base-devel" "paru" "node" "snap")
 
+	toilet -f smblock -F crop "Dependencias"
+
 	verificarInstalados "${dependencias[@]}"
+
+	toilet -f smblock -F crop "Personalización"
+
+	personalizacionKitty
 
 }
 
