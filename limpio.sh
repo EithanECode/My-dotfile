@@ -1,15 +1,17 @@
 #!/bin/bash
 
+plugis_zsh=("sintaxis" "y el otro xd") # Agregar esto
+
 personalizacion=("zsh" "lsd" "bat" "oh-my-zsh" )
 
-programas=("kitty")
+programas_steam=("kitty")
 
 function personalizacionKitty(){
 
 	echo "Instalando personalización de la terminal Kitty..."
 
 	cd $HOME/script_autoinstall
-
+	
 	cp -r "source/kitty" "$HOME/.config/kitty" 
 
 }
